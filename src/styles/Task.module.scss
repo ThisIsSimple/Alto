@@ -1,0 +1,27 @@
+$taskCardWidth: 400px;
+
+.taskContainer {
+  padding: 1rem 0;
+}
+
+.taskList {
+  flex: 0 0 auto;
+
+  .taskListHeader {
+    border-radius: 15px;
+    width: $taskCardWidth;
+    margin: 0 0.75rem 1.5rem;
+  }
+}
+
+.task {
+  cursor: pointer;
+  border-radius: 15px;
+  width: $taskCardWidth;
+  margin: 0 0.75rem 1.5rem;
+  background-color: white;
+}
+
+.taskThumbnail {
+  width: calc($taskCardWidth - 100px);
+}
