@@ -6,7 +6,7 @@ const DisplayContent = ({ content }) => (
   <>
     {content
       .replaceAll(
-        /(http[s]?|ftp):\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[-a-zA-Z0-9/_?#%~=]+/g,
+        /(http[s]?|ftp):\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[-a-zA-Z0-9/@:%._+~#=?&]+/g,
         (url) =>
           `<a style="color: #6366f2;" href="${url}" target="_blank" rel="noreferrer">${url}</a>`,
       )
