@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as styles from '../../styles/Util.module.scss';
 
 const FloatButton = ({ onClick = () => {} }) => (
@@ -6,7 +7,7 @@ const FloatButton = ({ onClick = () => {} }) => (
     <button
       type="button"
       onClick={onClick}
-      className={`${styles.floatButton} fixed bg-indigo-500 p-1 rounded-full text-white shadow-lg transform scale-100 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-indigo-500 transition-transform`}
+      className={`${styles.floatButton} z-50 fixed bg-indigo-500 p-1 rounded-full text-white shadow-lg transform scale-100 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-indigo-500 transition-transform`}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="45">
         <path
@@ -19,8 +20,12 @@ const FloatButton = ({ onClick = () => {} }) => (
   </>
 );
 
-FloatButton.propTypes = {
+FloatButton.defaultProps = {
   onClick: () => {},
+};
+
+FloatButton.propTypes = {
+  onClick: PropTypes.func,
 };
 
 export default FloatButton;

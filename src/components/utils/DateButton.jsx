@@ -17,6 +17,7 @@ DateButton.defaultProps = {
   color: 'indigo',
   onClick: () => {},
   selected: false,
+  className: '',
 };
 
 DateButton.propTypes = {

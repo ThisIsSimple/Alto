@@ -1,7 +1,5 @@
-const token = localStorage.getItem('_token');
-
-const authHeader = {
-  Authorization: `Bearer ${token}`,
-};
+const authHeader = () => ({
+  Authorization: `Bearer ${localStorage.getItem('_token')}`,
+});
 
 export default authHeader;

@@ -68,12 +68,14 @@ const TaskIndex = () => {
     dispatch(openModal());
   };
 
+  useEffect(() => {}, []);
+
   return (
     <>
       <Helmet>
         <title>업무 목록</title>
       </Helmet>
-      <div className={`${styles.taskContainer} flex-grow`}>
+      <div className={`${styles.taskContainer} flex-grow overflow-x-scroll`}>
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex whitespace-nowrap">
           <div className={styles.taskList}>
             <header

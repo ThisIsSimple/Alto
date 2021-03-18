@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -28,12 +28,10 @@ const AuthLogin = () => {
 
     const result = await authUser(username, password);
 
-    if (result.success) {
+    if (result) {
       history.replace('/');
     } else {
-      toast.error(result.message, {
-        toastId: 1,
-      });
+      // toast.error(result.message);
     }
   };
 
@@ -73,7 +71,15 @@ const AuthLogin = () => {
             required
           />
 
-          <Button text="Login" type="submit" />
+          <div className="flex flex-col items-center">
+            <Button text="Login" type="submit" className="mb-5" />
+            <div className="w-full border-t text-center pt-5">
+              또는{' '}
+              <Link to="/auth/register" className="text-indigo-500">
+                새로운 계정 만들기
+              </Link>
+            </div>
+          </div>
         </form>
       </div>
     </>

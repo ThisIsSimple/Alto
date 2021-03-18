@@ -10,7 +10,7 @@ import StatusBadge from '../components/utils/StatusBadge';
 import SecretBadge from '../components/utils/SecretBadge';
 import TaskDate from '../components/TaskDate';
 import DisplayContent from '../components/DisplayContent';
-import TaskAttachment from '../components/TaskAttachment';
+import DisplayAttachment from '../components/DisplayAttachment';
 import { getTaskAttachments, deleteTask } from '../services/task';
 import { getUser } from '../services/auth';
 import { closeModal } from '../reducers/modal';
@@ -136,7 +136,7 @@ const TaskViewModal = ({
           <DisplayContent content={description} />
         </div>
 
-        {attachments.data && <TaskAttachment attachments={attachments.data} />}
+        {attachments.data && <DisplayAttachment attachments={attachments.data} />}
 
         {attachments.data && (
           <div className="flex justify-end">

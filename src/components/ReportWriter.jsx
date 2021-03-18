@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Textarea from './utils/Textarea';
 import Button from './utils/Button';
-import Editor from './utils/Editor';
+import FileDrop from './utils/FileDrop';
+import Input from './utils/Input';
 
 const ReportWriter = ({ taskId }) => {
   const handleSubmit = (e) => {
@@ -18,11 +19,14 @@ const ReportWriter = ({ taskId }) => {
 
         <div className="flex flex-col justify-center">
           <form onSubmit={handleSubmit}>
-            <Textarea className="w-full mb-4" placeholder="보고 내용" />
-            {/* <Editor /> */}
+            <Input className="w-full mb-4" placeholder="보고 제목" required />
+
+            <Textarea className="w-full mb-4" placeholder="보고 내용" required />
+
+            <FileDrop />
 
             <div className="flex justify-end">
-              <Button text="보고하기" />
+              <Button type="submit" text="보고하기" />
             </div>
           </form>
         </div>

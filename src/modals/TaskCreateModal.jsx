@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import { mutate } from 'swr';
 import { format } from 'date-fns';
 import Button from '../components/utils/Button';
 import Input from '../components/utils/Input';
@@ -35,10 +36,10 @@ const TaskCreateModal = () => {
 
   const [ownerId, setOwnerId] = useState(-1);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    postNewTask({
+    const result = await postNewTask({
       task_name: taskName,
       description,
       priority,
@@ -47,11 +48,15 @@ const TaskCreateModal = () => {
       owner: ownerId,
       attachments,
       selectedUsers: selectedUsers.map((user) => user.value),
-    }).then(() => {
+    });
+
+    console.log(result);
+    if (result) {
       dispatch(resetTask());
       dispatch(changeSelectedUsers([]));
       dispatch(closeModal());
-    });
+      // mutate('users/');
+    }
   };
 
   useEffect(() => {

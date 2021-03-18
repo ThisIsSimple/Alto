@@ -5,6 +5,7 @@ import modalReducer from './modal';
 import taskReducer from './task';
 import taskCreateReducer from './taskCreate';
 import userSelectReducer from './userSelect';
+import toastReducer from './toast';
 
 const rootReducer = combineReducers({
   loginReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   taskReducer,
   taskCreateReducer,
   userSelectReducer,
+  toastReducer,
 });
 
 export default rootReducer;

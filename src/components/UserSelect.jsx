@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import useSWR from 'swr';
-import userAPI from '../services/user';
+import { getAllUsers } from '../services/user';
 import { changeSelectedUsers } from '../reducers/userSelect';
 
 const UserSelect = ({ className }) => {
@@ -109,7 +109,7 @@ const UserSelect = ({ className }) => {
   };
 
   const userLoader = useSWR('users/', () =>
-    userAPI.getAllUsers().then((res) =>
+    getAllUsers().then((res) =>
       res.map((value) => ({
         value: value.id,
         label: `${value.name} ${value.rank ? value.rank.name : ''}`,

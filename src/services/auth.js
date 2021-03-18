@@ -3,28 +3,33 @@ import { post } from '.';
 
 export const getToken = () => localStorage.getItem('_token');
 
-export const refreshToken = () => {
+export const refreshToken = async () => {
   const token = getToken();
-  return post('api-token-refresh/', {
+  const result = await post('api-token-refresh/', {
     token,
   });
+
+  return result;
 };
 
-export const verifyToken = (token) =>
-  post('api-token-verify/', {
+export const verifyToken = async (token) => {
+  const result = await post('api-token-verify/', {
     token,
   });
+  return result;
+};
 
 export const authUser = async (username, password) => {
-  try {
-    localStorage.removeItem('userInfo');
+  localStorage.removeItem('_token');
+  localStorage.removeItem('userInfo');
 
-    const result = await post('api-token-auth/', {
-      username,
-      password,
-    });
+  const result = await post('api-token-auth/', {
+    username,
+    password,
+  });
 
-    const { token } = result.data;
+  if (result) {
+    const { token } = result;
     localStorage.setItem('_token', token);
 
     const user = jwt_decode(token);
@@ -35,24 +40,10 @@ export const authUser = async (username, password) => {
     };
     localStorage.setItem('userInfo', JSON.stringify(convertedUser));
 
-    return {
-      success: true,
-      token,
-    };
-  } catch (err) {
-    let message = '';
-    if (err.response && 'non_field_errors' in err.response.data) {
-      message = '입력한 회원정보가 올바르지 않습니다.';
-    } else {
-      message = err.response
-        ? JSON.stringify(err.response.data)
-        : '알 수 없는 오류가 발생했습니다.';
-    }
-    return {
-      success: false,
-      message,
-    };
+    return true;
   }
+
+  return false;
 };
 
 export const logoutUser = () => {

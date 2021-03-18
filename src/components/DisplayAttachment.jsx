@@ -1,10 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import FbImageLibrary from 'react-fb-image-grid';
+import ImageGrid from './ImageGrid';
 
-const TaskAttachment = ({ attachments, className }) => (
+const DisplayAttachment = ({ attachments, className }) => (
   <>
     <div className={className}>
-      {attachments
+      <ImageGrid
+        images={attachments
+          .filter((attachment) => attachment.attachment_type.match(/image\/[a-zA-Z]+/g))
+          .map((image) => image.attachment_file)}
+        className="mb-4"
+      />
+      {/* <FbImageLibrary
+        images={attachments
+          .filter((attachment) => attachment.attachment_type.match(/image\/[a-zA-Z]+/g))
+          .map((image) => image.attachment_file)}
+      /> */}
+      {/* {attachments
         .filter((attachment) => attachment.attachment_type.match(/image\/[a-zA-Z]+/g))
         .map((image) => {
           const {
@@ -25,7 +38,7 @@ const TaskAttachment = ({ attachments, className }) => (
               />
             </a>
           );
-        })}
+        })} */}
 
       {attachments
         .filter((attachment) => !attachment.attachment_type.match(/image\/[a-zA-Z]+/g))
@@ -63,14 +76,14 @@ const TaskAttachment = ({ attachments, className }) => (
   </>
 );
 
-TaskAttachment.defaultProps = {
+DisplayAttachment.defaultProps = {
   attachments: [],
   className: '',
 };
 
-TaskAttachment.propTypes = {
+DisplayAttachment.propTypes = {
   attachments: PropTypes.array,
   className: PropTypes.string,
 };
 
-export default TaskAttachment;
+export default DisplayAttachment;

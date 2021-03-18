@@ -10,7 +10,7 @@ import SecretBadge from '../components/utils/SecretBadge';
 import TaskDate from '../components/TaskDate';
 import DisplayContent from '../components/DisplayContent';
 import ReportWriter from '../components/ReportWriter';
-import TaskAttachment from '../components/TaskAttachment';
+import DisplayAttachment from '../components/DisplayAttachment';
 import { getTaskAttachments } from '../services/task';
 
 const ProgressViewModal = ({
@@ -34,7 +34,7 @@ const ProgressViewModal = ({
       <Helmet>
         <title>{taskName}</title>
       </Helmet>
-      <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 w-full" style={{ minWidth: 350 }}>
+      <div className="max-w-7xl px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full" style={{ minWidth: 350 }}>
         <header className="mb-5">
           <h3 className="text-3xl font-bold mb-2">{taskName}</h3>
           <span className="text-gray-500">
@@ -62,7 +62,7 @@ const ProgressViewModal = ({
           <DisplayContent content={description} />
         </div>
 
-        {attachments.data && <TaskAttachment attachments={attachments.data} />}
+        {attachments.data && <DisplayAttachment attachments={attachments.data} />}
 
         {!openReportWriter && (
           <div className="flex justify-end">
@@ -81,17 +81,22 @@ const ProgressViewModal = ({
   );
 };
 
+ProgressViewModal.defaultProps = {
+  startDate: undefined,
+  endDate: undefined,
+};
+
 ProgressViewModal.propTypes = {
   progressId: PropTypes.number.isRequired,
-  orderedBy: PropTypes.number.isRequired,
-  orderedTo: PropTypes.array.isRequired,
+  orderedBy: PropTypes.object.isRequired,
+  orderedTo: PropTypes.object.isRequired,
   status: PropTypes.string.isRequired,
   taskId: PropTypes.number.isRequired,
   taskName: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   priority: PropTypes.number.isRequired,
-  startDate: PropTypes.any.isRequired,
-  endDate: PropTypes.any.isRequired,
+  startDate: PropTypes.any,
+  endDate: PropTypes.any,
 };
 
 export default ProgressViewModal;

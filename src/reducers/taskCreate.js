@@ -68,16 +68,13 @@ const reducer = handleActions(
       }),
     [RESET_TASK]: (state, actions) =>
       produce(state, (draftState) => {
-        draftState = {
-          taskName: '',
-          startDate: undefined,
-          endDate: undefined,
-          description: '',
-          priority: 1,
-          orderedTo: [],
-          secret: false,
-          attachments: [],
-        };
+        draftState.taskName = '';
+        draftState.startDate = undefined;
+        draftState.endDate = undefined;
+        draftState.description = '';
+        draftState.priority = 1;
+        draftState.secret = false;
+        draftState.attachments = [];
       }),
   },
   initialState,

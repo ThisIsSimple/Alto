@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({
+const Textarea = ({
   className,
   style,
   placeholder,
@@ -24,7 +24,7 @@ const Input = ({
   </>
 );
 
-Input.defaultProps = {
+Textarea.defaultProps = {
   className: '',
   style: {},
   placeholder: '',
@@ -34,7 +34,7 @@ Input.defaultProps = {
   onChange: () => {},
 };
 
-Input.propTypes = {
+Textarea.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   placeholder: PropTypes.string,
@@ -44,4 +44,4 @@ Input.propTypes = {
   onChange: () => {},
 };
 
-export default Input;
+export default Textarea;

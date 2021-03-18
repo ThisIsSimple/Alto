@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Modal as ResponsiveModal } from 'react-responsive-modal';
@@ -23,12 +23,16 @@ const Modal = ({ className = '' }) => {
       center
       classNames={{
         overlay: 'customOverlay',
-        modal: `${className} ${styles.modal}`,
+        modal: `${className} ${styles.modal} my-0 lg:my-10`,
       }}
     >
       {modalContent}
     </ResponsiveModal>
   );
+};
+
+Modal.defaultProps = {
+  className: '',
 };
 
 Modal.propTypes = {
