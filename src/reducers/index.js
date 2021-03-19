@@ -6,6 +6,7 @@ import taskReducer from './task';
 import taskCreateReducer from './taskCreate';
 import userSelectReducer from './userSelect';
 import toastReducer from './toast';
+import reportCreateReducer from './reportCreate';
 
 const rootReducer = combineReducers({
   loginReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   taskCreateReducer,
   userSelectReducer,
   toastReducer,
+  reportCreateReducer,
 });
 
 export default rootReducer;

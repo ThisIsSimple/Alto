@@ -74,7 +74,7 @@ const ProgressViewModal = ({
       {openReportWriter && (
         <>
           <div className="border-b-4 border-dotted border-gray-300" />
-          <ReportWriter taskId={taskId} />
+          <ReportWriter progressId={progressId} />
         </>
       )}
     </>

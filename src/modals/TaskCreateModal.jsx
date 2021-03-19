@@ -18,6 +18,7 @@ import {
   changeTaskName,
   changeDescription,
   changePriority,
+  changeAttachments,
   resetTask,
 } from '../reducers/taskCreate';
 import TaskSecretSwitch from '../components/TaskSecretSwitch';
@@ -140,7 +141,15 @@ const TaskCreateModal = () => {
 
           <UserSelect className="mb-4" />
 
-          <FileDrop />
+          <FileDrop
+            attachments={attachments}
+            onDrop={(files) => {
+              dispatch(changeAttachments(attachments.concat([...files])));
+            }}
+            onDelete={(file) => {
+              dispatch(changeAttachments(attachments.filter((value) => value !== file)));
+            }}
+          />
 
           <div className="flex-grow flex justify-center items-end">
             <Button type="submit" text="업무생성" />

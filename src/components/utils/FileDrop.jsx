@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
 import { FileDrop as ReactFileDrop } from 'react-file-drop';
-import { changeAttachments } from '../../reducers/taskCreate';
 
-const FileDrop = ({ className }) => {
-  const dispatch = useDispatch();
+const FileDrop = ({ className, attachments, onDrop, onDelete }) => {
   const [onOver, setOnOver] = useState(false);
-  const attachments = useSelector(({ taskCreateReducer }) => taskCreateReducer.attachments);
 
-  const handleFileDrop = (files, e) => {
-    console.log(files);
+  // const handleFileDrop = (files, e) => {
+  //   // console.log(files);
 
-    setOnOver(false);
+  //   setOnOver(false);
 
-    const fileList = [];
-    for (let i = 0; i < files.length; i += 1) {
-      fileList.push(files[i]);
-    }
-    dispatch(changeAttachments(attachments.concat(fileList)));
-  };
+  //   // const fileList = [];
+  //   // for (let i = 0; i < files.length; i += 1) {
+  //   //   fileList.push(files[i]);
+  //   // }
+  //   // dispatch(changeAttachments(attachments.concat(fileList)));
+  //   const fileList = new Set(attachments.concat([...files]));
+  //   console.log(attachments);
+  //   console.log(fileList);
+  //   dispatch(changeAttachments([...fileList]));
+  // };
 
-  const handleFileDelete = (fileName) => {
-    dispatch(changeAttachments(attachments.filter((file) => file.name !== fileName)));
-  };
+  // const handleFileDelete = (fileName) => {
+  //   dispatch(changeAttachments(attachments.filter((file) => file.name !== fileName)));
+  // };
 
   return (
     <div
@@ -37,7 +37,10 @@ const FileDrop = ({ className }) => {
         // onFrameDrop={(e) => }
         onDragOver={(e) => setOnOver(true)}
         onDragLeave={(e) => setOnOver(false)}
-        onDrop={handleFileDrop}
+        onDrop={(files) => {
+          setOnOver(false);
+          onDrop(files);
+        }}
       >
         {attachments.length !== 0 ? (
           <>
@@ -52,7 +55,7 @@ const FileDrop = ({ className }) => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     className="w-4 cursor-pointer"
-                    onClick={() => handleFileDelete(file.name)}
+                    onClick={() => onDelete(file)}
                   >
                     <path
                       strokeLinecap="round"
@@ -99,10 +102,16 @@ const FileDrop = ({ className }) => {
 };
 
 FileDrop.defaultProps = {
+  attachments: [],
+  onDrop: () => {},
+  onDelete: () => {},
   className: '',
 };
 
 FileDrop.propTypes = {
+  attachments: PropTypes.array,
+  onDrop: PropTypes.func,
+  onDelete: PropTypes.func,
   className: PropTypes.string,
 };
 

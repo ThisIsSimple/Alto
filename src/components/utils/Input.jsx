@@ -10,7 +10,7 @@ const Input = ({
   defaultValue,
   required,
   accept,
-  onChange = () => {},
+  onChange,
 }) => (
   <>
     <input
