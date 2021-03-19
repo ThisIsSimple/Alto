@@ -85,7 +85,7 @@ const ImageGrid = ({ images, className }) => {
                   <Img src={image} alt={image} />
                   {count > 4 && index === 3 && (
                     <Overlay>
-                      <h3>+{count - 4}장</h3>
+                      <h3>+{count - 3}장</h3>
                     </Overlay>
                   )}
                 </ImgCell>
