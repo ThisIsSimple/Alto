@@ -13,6 +13,14 @@ import authHeader from './authHeader';
 
 // export const getReportAttachments = (progressId) => getWithAuth(`tasks/${taskId}/attachments/`);
 
+export const getReport = async (progressId) => {
+  const reports = await getWithAuth(`task_progresses/${progressId}/report/`);
+  if (reports.length !== 0) return reports[0];
+  return undefined;
+};
+
+export const getReportAttachments = (reportId) => getWithAuth(`reports/${reportId}/attachments/`);
+
 export const postNewReport = async (data) => {
   const newReport = await postWithAuth('reports/', {
     ...data,
@@ -28,7 +36,7 @@ export const postNewReport = async (data) => {
       formData.append('attachment_name', value.name);
       formData.append('attachment_type', value.type);
       formData.append('attachment_file', value);
-      formData.append('uploader', data.owner);
+      formData.append('uploader', data.report_writer);
       formData.append('parent_type', 'report');
       formData.append('parent', reportId);
 

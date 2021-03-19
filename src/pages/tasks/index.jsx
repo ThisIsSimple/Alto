@@ -68,7 +68,7 @@ const TaskIndex = () => {
     dispatch(openModal());
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [user]);
 
   return (
     <>

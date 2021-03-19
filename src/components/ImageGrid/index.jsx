@@ -72,7 +72,7 @@ const ImageGrid = ({ images, className }) => {
       if (img.width > img.height) setIsHorizontal(true);
       else setIsHorizontal(false);
     };
-  }, images);
+  }, [images]);
 
   return (
     <>

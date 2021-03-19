@@ -6,6 +6,7 @@ import Button from './utils/Button';
 import FileDrop from './utils/FileDrop';
 import Input from './utils/Input';
 import { changeReportName, changeReportContent, changeAttachments } from '../reducers/reportCreate';
+import { getUser } from '../services/auth';
 import { postNewReport } from '../services/report';
 
 const ReportWriter = ({ progressId }) => {
@@ -29,14 +30,35 @@ const ReportWriter = ({ progressId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const user = getUser();
     const result = await postNewReport({
       progressId,
       report_name: reportName,
       report_content: reportContent,
       attachments,
+      report_writer: user.userId,
     });
 
-    console.log(result);
+    if (result) {
+      dispatch(
+        changeReportName({
+          id: progressId,
+          reportName: '',
+        }),
+      );
+      dispatch(
+        changeReportContent({
+          id: progressId,
+          reportContent: '',
+        }),
+      );
+      dispatch(
+        changeAttachments({
+          id: progressId,
+          attachments: [],
+        }),
+      );
+    }
   };
 
   return (

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import useSWR from 'swr';
+import useSWR, { trigger } from 'swr';
+import { format } from 'date-fns';
 import Button from '../components/utils/Button';
 import ProfileImage from '../components/utils/ProfileImage';
 import PriorityBadge from '../components/utils/PriorityBadge';
@@ -12,6 +13,8 @@ import DisplayContent from '../components/DisplayContent';
 import ReportWriter from '../components/ReportWriter';
 import DisplayAttachment from '../components/DisplayAttachment';
 import { getTaskAttachments } from '../services/task';
+import { getReport, getReportAttachments } from '../services/report';
+import DateFormat from '../components/utils/DateFormat';
 
 const ProgressViewModal = ({
   progressId,
@@ -27,14 +30,26 @@ const ProgressViewModal = ({
   endDate,
 }) => {
   const [openReportWriter, setOpenReportWriter] = useState(false);
-  const attachments = useSWR(`tasks/${taskId}/attachments/`, () => getTaskAttachments(taskId));
+  const [shouldUpdate, setShouldUpdate] = useState(false);
+  const {
+    data: taskAttachments,
+    error: taskAttachmentsError,
+  } = useSWR(`tasks/${taskId}/attachments/`, () => getTaskAttachments(taskId));
+
+  const { data: report, error: reportError } = useSWR(`task_progresses/${progressId}/report/`, () =>
+    getReport(progressId),
+  );
+  const { data: reportAttachments, error: reportAttachmentsError } = useSWR(
+    `reports/${progressId}`,
+    () => getReportAttachments(report.id),
+  );
 
   return (
     <>
       <Helmet>
         <title>{taskName}</title>
       </Helmet>
-      <div className="max-w-7xl px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full" style={{ minWidth: 350 }}>
+      <div className="max-w-7xl px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full">
         <header className="mb-5">
           <h3 className="text-3xl font-bold mb-2">{taskName}</h3>
           <span className="text-gray-500">
@@ -62,19 +77,53 @@ const ProgressViewModal = ({
           <DisplayContent content={description} />
         </div>
 
-        {attachments.data && <DisplayAttachment attachments={attachments.data} />}
+        {taskAttachments && <DisplayAttachment attachments={taskAttachments} />}
 
-        {!openReportWriter && (
+        {!report && !openReportWriter && (
           <div className="flex justify-end">
             <Button text="보고하기" onClick={() => setOpenReportWriter(true)} />
           </div>
         )}
       </div>
 
-      {openReportWriter && (
+      {!report ? (
+        openReportWriter && (
+          <>
+            <div className="border-b-4 border-dotted border-gray-300" />
+            <ReportWriter progressId={progressId} />
+          </>
+        )
+      ) : (
         <>
-          <div className="border-b-4 border-dotted border-gray-300" />
-          <ReportWriter progressId={progressId} />
+          <div className="border-b-4 border-dotted border-gray-300 my-3" />
+
+          <div className="max-w-7xl px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full">
+            <header className="mb-5">
+              <h3 className="text-2xl font-bold mb-2">{report.report_name}</h3>
+              <span className="text-gray-500">
+                {format(new Date(report.created_at), 'yyyy-MM-dd HH:mm:ss') ===
+                format(new Date(report.updated_at), 'yyyy-MM-dd HH:mm:ss') ? (
+                  <>
+                    <DateFormat date={report.created_at} format="yyyy-MM-dd HH:mm:s" /> 최초 작성
+                  </>
+                ) : (
+                  <>
+                    <DateFormat date={report.updated_at} format="yyyy-MM-dd HH:mm:s" /> 최종 수정
+                  </>
+                )}
+              </span>
+            </header>
+
+            <DisplayContent content={report.report_content} />
+
+            {reportAttachments && <DisplayAttachment attachments={reportAttachments} />}
+
+            {report && (
+              <div className="flex justify-end">
+                <Button text="수정하기" onClick={() => setOpenReportWriter(true)} />
+              </div>
+            )}
+          </div>
         </>
       )}
     </>
