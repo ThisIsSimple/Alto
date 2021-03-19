@@ -49,42 +49,40 @@ const ProgressViewModal = ({
       <Helmet>
         <title>{taskName}</title>
       </Helmet>
-      <div className="max-w-7xl px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full">
-        <header className="mb-5">
-          <h3 className="text-3xl font-bold mb-2">{taskName}</h3>
-          <span className="text-gray-500">
-            <TaskDate startDate={startDate} endDate={endDate} detail />
-          </span>
-        </header>
+      <header className="mb-5">
+        <h3 className="text-3xl font-bold mb-2">{taskName}</h3>
+        <span className="text-gray-500">
+          <TaskDate startDate={startDate} endDate={endDate} detail />
+        </span>
+      </header>
 
-        <div className="flex items-center mb-5">
-          <ProfileImage
-            profileImage={orderedBy.profile_image}
-            name={orderedBy.name ? orderedBy.name : ''}
-            rank={orderedBy.rank?.name ? orderedBy.rank.name : ''}
-            className="shadow"
-            tooltipClassName="mr-4"
-          />
-          <PriorityBadge priority={priority} className="shadow" tooltipClassName="mr-2" />
-          <StatusBadge status={status} className="shadow" tooltipClassName="mr-2" />
-          <SecretBadge secret={secret} className="shadow" tooltipClassName="mr-2" />
-        </div>
+      <div className="flex items-center mb-5">
+        <ProfileImage
+          profileImage={orderedBy.profile_image}
+          name={orderedBy.name ? orderedBy.name : ''}
+          rank={orderedBy.rank?.name ? orderedBy.rank.name : ''}
+          className="shadow"
+          tooltipClassName="mr-4"
+        />
+        <PriorityBadge priority={priority} className="shadow" tooltipClassName="mr-2" />
+        <StatusBadge status={status} className="shadow" tooltipClassName="mr-2" />
+        <SecretBadge secret={secret} className="shadow" tooltipClassName="mr-2" />
+      </div>
 
-        <div className="border-t border-dashed border-gray-300 py-4 mb-5">
-          {/* <header className="mb-4">
+      <div className="border-t border-dashed border-gray-300 py-4 mb-5">
+        {/* <header className="mb-4">
             <h2 className="text-lg font-bold">업무 내용</h2>
           </header> */}
-          <DisplayContent content={description} />
-        </div>
-
-        {taskAttachments && <DisplayAttachment attachments={taskAttachments} />}
-
-        {!report && !openReportWriter && (
-          <div className="flex justify-end">
-            <Button text="보고하기" onClick={() => setOpenReportWriter(true)} />
-          </div>
-        )}
+        <DisplayContent content={description} />
       </div>
+
+      {taskAttachments && <DisplayAttachment attachments={taskAttachments} />}
+
+      {!report && !openReportWriter && (
+        <div className="flex justify-end">
+          <Button text="보고하기" onClick={() => setOpenReportWriter(true)} />
+        </div>
+      )}
 
       {!report ? (
         openReportWriter && (

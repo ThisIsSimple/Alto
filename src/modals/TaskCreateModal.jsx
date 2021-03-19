@@ -70,95 +70,90 @@ const TaskCreateModal = () => {
       <Helmet>
         <title>업무 생성</title>
       </Helmet>
-      <div
-        className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col"
-        style={{ minHeight: 700 }}
-      >
-        <header className="mb-10">
-          <h3 className="text-2xl font-bold">업무 생성</h3>
-        </header>
-        <form onSubmit={handleSubmit} className="flex flex-grow flex-col">
-          <TaskSecretSwitch />
+      <header className="mb-10">
+        <h3 className="text-2xl font-bold">업무 생성</h3>
+      </header>
+      <form onSubmit={handleSubmit} className="flex flex-grow flex-col">
+        <TaskSecretSwitch />
 
-          <Input
-            className="w-full mb-4"
-            type="text"
-            placeholder="업무 이름"
-            value={taskName}
-            onChange={(e) => dispatch(changeTaskName(e.currentTarget.value))}
-            required
+        <Input
+          className="w-full mb-4"
+          type="text"
+          placeholder="업무 이름"
+          value={taskName}
+          onChange={(e) => dispatch(changeTaskName(e.currentTarget.value))}
+          required
+        />
+        <div className="mb-4 z-10">
+          <TaskDateSelect />
+        </div>
+
+        <Textarea
+          className="w-full mb-4"
+          placeholder="업무 내용"
+          onChange={(e) => dispatch(changeDescription(e.currentTarget.value))}
+          value={description}
+          rows={7}
+          required
+        />
+
+        <div className="flex mb-4">
+          <PriorityBadge
+            priority={1}
+            className="shadow"
+            tooltipClassName="mr-2"
+            selected={priority === 1}
+            onClick={() => dispatch(changePriority(1))}
           />
-          <div className="mb-4 z-10">
-            <TaskDateSelect />
-          </div>
-
-          <Textarea
-            className="w-full mb-4"
-            placeholder="업무 내용"
-            onChange={(e) => dispatch(changeDescription(e.currentTarget.value))}
-            value={description}
-            rows={7}
-            required
+          <PriorityBadge
+            priority={2}
+            className="shadow"
+            tooltipClassName="mr-2"
+            selected={priority === 2}
+            onClick={() => dispatch(changePriority(2))}
           />
-
-          <div className="flex mb-4">
-            <PriorityBadge
-              priority={1}
-              className="shadow"
-              tooltipClassName="mr-2"
-              selected={priority === 1}
-              onClick={() => dispatch(changePriority(1))}
-            />
-            <PriorityBadge
-              priority={2}
-              className="shadow"
-              tooltipClassName="mr-2"
-              selected={priority === 2}
-              onClick={() => dispatch(changePriority(2))}
-            />
-            <PriorityBadge
-              priority={3}
-              className="shadow"
-              tooltipClassName="mr-2"
-              selected={priority === 3}
-              onClick={() => dispatch(changePriority(3))}
-            />
-            <PriorityBadge
-              priority={4}
-              className="shadow"
-              tooltipClassName="mr-2"
-              selected={priority === 4}
-              onClick={() => dispatch(changePriority(4))}
-            />
-            <PriorityBadge
-              priority={5}
-              className="shadow"
-              tooltipClassName="mr-2"
-              selected={priority === 5}
-              onClick={() => dispatch(changePriority(5))}
-            />
-          </div>
-
-          <UserSelect className="mb-4" />
-
-          <FileDrop
-            attachments={attachments}
-            onDrop={(files) => {
-              dispatch(changeAttachments(attachments.concat([...files])));
-            }}
-            onDelete={(file) => {
-              dispatch(changeAttachments(attachments.filter((value) => value !== file)));
-            }}
-            onSelect={(files) => {
-              dispatch(changeAttachments(attachments.concat([...files])));
-            }}
+          <PriorityBadge
+            priority={3}
+            className="shadow"
+            tooltipClassName="mr-2"
+            selected={priority === 3}
+            onClick={() => dispatch(changePriority(3))}
           />
+          <PriorityBadge
+            priority={4}
+            className="shadow"
+            tooltipClassName="mr-2"
+            selected={priority === 4}
+            onClick={() => dispatch(changePriority(4))}
+          />
+          <PriorityBadge
+            priority={5}
+            className="shadow"
+            tooltipClassName="mr-2"
+            selected={priority === 5}
+            onClick={() => dispatch(changePriority(5))}
+          />
+        </div>
 
-          <div className="flex-grow flex justify-center items-end">
-            <Button type="submit" text="업무생성" />
-          </div>
-        </form>
-      </div>
+        <UserSelect className="mb-4" />
+
+        <FileDrop
+          attachments={attachments}
+          onDrop={(files) => {
+            dispatch(changeAttachments(attachments.concat([...files])));
+          }}
+          onDelete={(file) => {
+            dispatch(changeAttachments(attachments.filter((value) => value !== file)));
+          }}
+          onSelect={(files) => {
+            dispatch(changeAttachments(attachments.concat([...files])));
+          }}
+        />
+
+        <div className="flex-grow flex justify-center items-end">
+          <Button type="submit" text="업무생성" />
+        </div>
+      </form>
     </>
   );
 };

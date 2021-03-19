@@ -23,7 +23,7 @@ const Modal = ({ className = '' }) => {
       center
       classNames={{
         overlay: 'customOverlay',
-        modal: `${className} ${styles.modal} my-0 lg:my-10`,
+        modal: `${className} ${styles.modal} px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full my-0 lg:my-10`,
       }}
     >
       {modalContent}
