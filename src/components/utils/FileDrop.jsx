@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FileDrop as ReactFileDrop } from 'react-file-drop';
 
-const FileDrop = ({ className, attachments, onDrop, onDelete }) => {
+const FileDrop = ({ className, attachments, onDrop, onDelete, onSelect }) => {
   const [onOver, setOnOver] = useState(false);
 
   // const handleFileDrop = (files, e) => {
@@ -89,9 +89,16 @@ const FileDrop = ({ className, attachments, onDrop, onDelete }) => {
               <h3 className="text-lg self-center font-semibold">파일 업로드</h3>
               <p className="text-center">
                 파일을 이곳에 드래그 혹은{' '}
-                <button className="text-indigo-500" type="button">
+                <label htmlFor="file-input" className="text-indigo-500 cursor-pointer">
                   클릭해서 선택
-                </button>
+                  <input
+                    id="file-input"
+                    type="file"
+                    className="hidden"
+                    multiple
+                    onChange={(e) => onSelect(e.currentTarget.files)}
+                  />
+                </label>
               </p>
             </div>
           </>
@@ -105,6 +112,7 @@ FileDrop.defaultProps = {
   attachments: [],
   onDrop: () => {},
   onDelete: () => {},
+  onSelect: () => {},
   className: '',
 };
 
@@ -112,6 +120,7 @@ FileDrop.propTypes = {
   attachments: PropTypes.array,
   onDrop: PropTypes.func,
   onDelete: PropTypes.func,
+  onSelect: PropTypes.func,
   className: PropTypes.string,
 };
 

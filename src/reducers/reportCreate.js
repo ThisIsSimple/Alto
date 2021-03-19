@@ -21,15 +21,15 @@ const reducer = handleActions(
         if (result) {
           draftState.reports = draftState.reports.map((report) => {
             if (report.id === actions.payload.id) {
-              report.taskName = actions.payload.taskName;
+              report.reportName = actions.payload.reportName;
             }
             return report;
           });
         } else {
           draftState.reports.push({
             id: actions.payload.id,
-            taskName: actions.payload.taskName,
-            taskContent: '',
+            reportName: actions.payload.reportName,
+            reportContent: '',
             attachments: [],
           });
         }
@@ -40,15 +40,15 @@ const reducer = handleActions(
         if (result) {
           draftState.reports = draftState.reports.map((report) => {
             if (report.id === actions.payload.id) {
-              report.taskContent = actions.payload.taskContent;
+              report.reportContent = actions.payload.reportContent;
             }
             return report;
           });
         } else {
           draftState.reports.push({
             id: actions.payload.id,
-            taskName: '',
-            taskContent: actions.payload.taskContent,
+            reportName: '',
+            reportContent: actions.payload.reportContent,
             attachments: [],
           });
         }
@@ -66,8 +66,8 @@ const reducer = handleActions(
         } else {
           draftState.reports.push({
             id: actions.payload.id,
-            taskName: '',
-            taskContent: '',
+            reportName: '',
+            reportContent: '',
             attachments: actions.payload.attachments,
           });
         }

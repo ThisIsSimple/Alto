@@ -6,17 +6,18 @@ import Button from './utils/Button';
 import FileDrop from './utils/FileDrop';
 import Input from './utils/Input';
 import { changeReportName, changeReportContent, changeAttachments } from '../reducers/reportCreate';
+import { postNewReport } from '../services/report';
 
 const ReportWriter = ({ progressId }) => {
   const dispatch = useDispatch();
-  const taskName = useSelector(({ reportCreateReducer }) =>
+  const reportName = useSelector(({ reportCreateReducer }) =>
     reportCreateReducer.reports.find((report) => report.id === progressId)
-      ? reportCreateReducer.reports.find((report) => report.id === progressId).taskName
+      ? reportCreateReducer.reports.find((report) => report.id === progressId).reportName
       : '',
   );
-  const taskContent = useSelector(({ reportCreateReducer }) =>
+  const reportContent = useSelector(({ reportCreateReducer }) =>
     reportCreateReducer.reports.find((report) => report.id === progressId)
-      ? reportCreateReducer.reports.find((report) => report.id === progressId).taskContent
+      ? reportCreateReducer.reports.find((report) => report.id === progressId).reportContent
       : '',
   );
   const attachments = useSelector(({ reportCreateReducer }) =>
@@ -25,8 +26,17 @@ const ReportWriter = ({ progressId }) => {
       : [],
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const result = await postNewReport({
+      progressId,
+      report_name: reportName,
+      report_content: reportContent,
+      attachments,
+    });
+
+    console.log(result);
   };
 
   return (
@@ -41,12 +51,12 @@ const ReportWriter = ({ progressId }) => {
             <Input
               className="w-full mb-4"
               placeholder="보고 제목"
-              value={taskName}
+              value={reportName}
               onChange={(e) => {
                 dispatch(
                   changeReportName({
                     id: progressId,
-                    taskName: e.currentTarget.value,
+                    reportName: e.currentTarget.value,
                   }),
                 );
               }}
@@ -56,12 +66,12 @@ const ReportWriter = ({ progressId }) => {
             <Textarea
               className="w-full mb-4"
               placeholder="보고 내용"
-              value={taskContent}
+              value={reportContent}
               onChange={(e) => {
                 dispatch(
                   changeReportContent({
                     id: progressId,
-                    taskContent: e.currentTarget.value,
+                    reportContent: e.currentTarget.value,
                   }),
                 );
               }}
@@ -87,6 +97,14 @@ const ReportWriter = ({ progressId }) => {
                   changeAttachments({
                     id: progressId,
                     attachments: attachments.filter((value) => value !== file),
+                  }),
+                );
+              }}
+              onSelect={(files) => {
+                dispatch(
+                  changeAttachments({
+                    id: progressId,
+                    attachments: attachments.concat([...files]),
                   }),
                 );
               }}

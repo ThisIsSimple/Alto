@@ -149,6 +149,9 @@ const TaskCreateModal = () => {
             onDelete={(file) => {
               dispatch(changeAttachments(attachments.filter((value) => value !== file)));
             }}
+            onSelect={(files) => {
+              dispatch(changeAttachments(attachments.concat([...files])));
+            }}
           />
 
           <div className="flex-grow flex justify-center items-end">
