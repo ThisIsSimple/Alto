@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input/input';
 import useSWR from 'swr';
 import { toast } from 'react-toastify';
-import ImageCreator from '../../components/utils/ImageCreator';
-import * as actions from '../../reducers/register';
-import { changeUsernameInput, changePasswordInput } from '../../reducers/login';
-import { authUser } from '../../services/auth';
 import Input from '../../components/utils/Input';
 import Button from '../../components/utils/Button';
 import Select from '../../components/utils/Select';
@@ -18,6 +14,7 @@ import { getAllRanks } from '../../services/rank';
 import { postNewUser } from '../../services/user';
 
 const AuthRegister = () => {
+  const history = useHistory();
   const [userData, setUserData] = useState({
     username: '',
     password: '',
@@ -27,7 +24,8 @@ const AuthRegister = () => {
     profile: '',
     profileImage: undefined,
     phone: '',
-    enteredAt: '',
+    enteredAt: undefined,
+    birthday: undefined,
     rank: undefined,
   });
   const { data: ranks, error } = useSWR('ranks/', () => getAllRanks());
@@ -39,16 +37,13 @@ const AuthRegister = () => {
       const result = await postNewUser({
         ...userData,
         phone: formatPhoneNumber(userData.phone).replaceAll('-', ''),
-        profileImage: userData.profileImage,
         enteredAt: format(new Date(userData.enteredAt), 'yyyy-MM-dd'),
       });
 
-      // if (!result) {
-      //   Object.keys(result.messages).map((key) => {
-      //     toast.error(JSON.stringify(result.messages[key]));
-      //     return key;
-      //   });
-      // }
+      if (result) {
+        history.replace('/');
+        toast.success(`환영합니다, ${result.name}님!`);
+      }
     }
   };
 
@@ -122,10 +117,8 @@ const AuthRegister = () => {
               <div className="w-20 mr-5">프로필</div>
               <Input
                 type="file"
-                value={userData.profileImage}
                 onChange={(e) => {
-                  // console.log(e.currentTarget.files[0]);
-                  // setUserData({ ...userData, profileImage: e.currentTarget.files[0] });
+                  setUserData({ ...userData, profileImage: e.currentTarget.files[0] });
                 }}
                 className="w-full"
                 placeholder="프로필 사진"
@@ -153,6 +146,17 @@ const AuthRegister = () => {
                 onChange={(e) => setUserData({ ...userData, enteredAt: e.currentTarget.value })}
                 className="w-full"
                 placeholder="입사일"
+                required
+              />
+            </div>
+            <div className="flex items-center mb-4 text-right">
+              <div className="w-20 mr-5">생일</div>
+              <Input
+                type="date"
+                value={userData.birthday}
+                onChange={(e) => setUserData({ ...userData, birthday: e.currentTarget.value })}
+                className="w-full"
+                placeholder="생일"
                 required
               />
             </div>

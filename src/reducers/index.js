@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import loginReducer from './login';
-import registerReducer from './register';
 import modalReducer from './modal';
 import taskReducer from './task';
 import taskCreateReducer from './taskCreate';
@@ -10,7 +9,6 @@ import reportCreateReducer from './reportCreate';
 
 const rootReducer = combineReducers({
   loginReducer,
-  registerReducer,
   modalReducer,
   taskReducer,
   taskCreateReducer,
