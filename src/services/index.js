@@ -7,12 +7,18 @@ const { REACT_APP_API_BASE_URL } = process.env;
 axios.defaults.baseURL = REACT_APP_API_BASE_URL;
 axios.defaults.withCredentials = true;
 
+const toastError = (err) => {
+  Object.keys(err.response.data).map((errorCode) =>
+    toast.error(JSON.stringify(err.response.data[errorCode])),
+  );
+};
+
 export const get = async (url, options = {}) => {
   try {
     const req = await axios.get(url, options);
     return req.data;
   } catch (err) {
-    console.log(err.response);
+    toastError(err);
     return undefined;
   }
 };
@@ -24,8 +30,7 @@ export const post = async (url, data = {}, options = {}) => {
     });
     return req.data;
   } catch (err) {
-    console.log(err.response);
-    Object.keys(err.response.data).map((errorCode) => toast.error(err.response.data[errorCode]));
+    toastError(err);
     return undefined;
   }
 };
@@ -39,7 +44,7 @@ export const getWithAuth = async (url, options = {}) => {
 
     return result.data;
   } catch (err) {
-    console.log(err.response);
+    toastError(err);
     return undefined;
   }
 };
@@ -52,7 +57,7 @@ export const postWithAuth = async (url, data = {}, options = {}) => {
     });
     return result.data;
   } catch (err) {
-    console.log(err.response);
+    toastError(err);
     return undefined;
   }
 };
@@ -65,7 +70,7 @@ export const deleteWithAuth = async (url, options = {}) => {
     });
     return result.data;
   } catch (err) {
-    console.log(err.response);
+    toastError(err);
     return undefined;
   }
 };
