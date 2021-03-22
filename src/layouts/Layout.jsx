@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../components/utils/Modal';
-import Header from '../components/Header';
+import SideLayout from './SideLayout';
 
 const Layout = ({ children }) => (
   <>
-    <div id="layout" className="min-h-screen flex flex-col">
-      {children}
+    <div id="layout" className="w-screen h-screen flex">
+      <SideLayout />
+      <div className="main-content min-h-screen flex-1 flex flex-col">{children}</div>
       <Modal />
     </div>
   </>

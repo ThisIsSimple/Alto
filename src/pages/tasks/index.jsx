@@ -75,63 +75,58 @@ const TaskIndex = () => {
       <Helmet>
         <title>업무 목록</title>
       </Helmet>
-      <div className={`${styles.taskContainer} flex-grow overflow-x-scroll`}>
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex whitespace-nowrap">
-          <div className={styles.taskList}>
-            <header
-              className={`${styles.taskListHeader} bg-indigo-500 text-white relative shadow-lg px-5 py-3 flex transition-shadow`}
-            >
-              <h3 className="text-lg font-bold">오늘의 할 일</h3>
-            </header>
-            {receivedTasks.data &&
-              receivedTasks.data.map((value) => {
-                const { ordered_by, ordered_to, status } = value;
-                const { task_name, secret, priority, start_date, end_date } = value.task;
-                return (
-                  <Progress
-                    key={value.id}
-                    progressId={value.id}
-                    taskName={task_name}
-                    secret={secret}
-                    priority={priority}
-                    startDate={start_date}
-                    endDate={end_date}
-                    orderedBy={ordered_by}
-                    orderedTo={ordered_to}
-                    status={status}
-                    taskId={value.task.id}
-                    onClick={() => handleProgressClick(value)}
-                  />
-                );
-              })}
-          </div>
+      <div className={styles.taskList}>
+        <header
+          className={`${styles.taskListHeader} bg-indigo-500 text-white relative shadow-lg px-5 py-3 flex transition-shadow`}
+        >
+          <h3 className="text-lg font-bold">오늘의 할 일</h3>
+        </header>
+        {receivedTasks.data &&
+          receivedTasks.data.map((value) => {
+            const { ordered_by, ordered_to, status } = value;
+            const { task_name, secret, priority, start_date, end_date } = value.task;
+            return (
+              <Progress
+                key={value.id}
+                progressId={value.id}
+                taskName={task_name}
+                secret={secret}
+                priority={priority}
+                startDate={start_date}
+                endDate={end_date}
+                orderedBy={ordered_by}
+                orderedTo={ordered_to}
+                status={status}
+                taskId={value.task.id}
+                onClick={() => handleProgressClick(value)}
+              />
+            );
+          })}
+      </div>
 
-          <div className={styles.taskList}>
-            <header
-              className={`${styles.taskListHeader} bg-indigo-500 text-white relative shadow-lg px-5 py-3 flex transition-shadow`}
-            >
-              <h3 className="text-lg font-bold">내가 지시한 업무</h3>
-            </header>
-            {ownTasks.data &&
-              ownTasks.data.map((value) => {
-                // const { ordered_by, ordered_to, status } = value;
-                const { task_name, secret, priority, start_date, end_date } = value;
-                return (
-                  <Task
-                    key={value.id}
-                    taskName={task_name}
-                    secret={secret}
-                    priority={priority}
-                    startDate={start_date}
-                    endDate={end_date}
-                    taskId={value.id}
-                    progresses={value.progresses}
-                    onClick={() => handleTaskClick(value)}
-                  />
-                );
-              })}
-          </div>
-        </div>
+      <div className={styles.taskList}>
+        <header
+          className={`${styles.taskListHeader} bg-indigo-500 text-white relative shadow-lg px-5 py-3 flex transition-shadow`}
+        >
+          <h3 className="text-lg font-bold">내가 지시한 업무</h3>
+        </header>
+        {ownTasks.data &&
+          ownTasks.data.map((value) => {
+            const { task_name, secret, priority, start_date, end_date } = value;
+            return (
+              <Task
+                key={value.id}
+                taskName={task_name}
+                secret={secret}
+                priority={priority}
+                startDate={start_date}
+                endDate={end_date}
+                taskId={value.id}
+                progresses={value.progresses}
+                onClick={() => handleTaskClick(value)}
+              />
+            );
+          })}
       </div>
     </>
   );

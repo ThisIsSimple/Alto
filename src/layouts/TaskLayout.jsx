@@ -18,7 +18,9 @@ const TaskLayout = ({ children }) => {
     <>
       <Layout>
         <Header />
-        <>{children}</>
+        <div className={`${styles.taskContainer} flex-grow overflow-x-scroll`}>
+          <div className="p-3 flex whitespace-nowrap">{children}</div>
+        </div>
         <FloatButton onClick={handleClick} />
       </Layout>
     </>

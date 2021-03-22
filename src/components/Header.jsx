@@ -14,62 +14,37 @@ const Header = () => {
 
   return (
     <>
-      <div className="z-50 w-full">
-        <nav className="bg-gray-800">
+      <div className="z-30 w-full shadow">
+        <nav className="bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <Link to="/">
-                    <img
-                      className="h-8 w-8"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                      alt="Workflow"
-                    />
-                  </Link>
-                </div>
                 <div className="hidden md:block">
-                  <div className="ml-10 flex items-baseline space-x-4">
-                    <Link
-                      to="/tasks"
-                      className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  <div className="flex items-center space-x-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="w-6 h-6 text-gray-400"
                     >
-                      Dashboard
-                    </Link>
-
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Team
-                    </a>
-
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Projects
-                    </a>
-
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Calendar
-                    </a>
-
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Reports
-                    </a>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                    <input type="text" className="py-3" placeholder="검색" />
                   </div>
                 </div>
               </div>
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
-                  <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <button
+                    type="button"
+                    className="bg-white dark:bg-gray-800 p-1 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 dark:focus:ring-offset-gray-800 dark:focus:ring-white"
+                  >
                     <span className="sr-only">View notifications</span>
 
                     <svg
@@ -93,7 +68,7 @@ const Header = () => {
                     <div>
                       <button
                         type="button"
-                        className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                        className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-600 dark:focus:ring-offset-gray-800 dark:focus:ring-white"
                         id="user-menu"
                         aria-expanded="false"
                         aria-haspopup="true"
@@ -138,10 +113,10 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="-mr-2 flex md:hidden">
+              <div className="mr-2 flex md:hidden">
                 <button
                   type="button"
-                  className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="dark:bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                   aria-controls="mobile-menu"
                   aria-expanded="false"
                   onClick={() => setOpenDropdown(!openDropdown)}
@@ -277,19 +252,6 @@ const Header = () => {
             </div>
           )}
         </nav>
-
-        <header className="bg-white shadow">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          </div>
-        </header>
-        {/* <main>
-          <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-            <div className="px-4 py-6 sm:px-0">
-              <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-            </div>
-          </div>
-        </main> */}
       </div>
       {/* <div style={{ height: 148 }} /> */}
     </>

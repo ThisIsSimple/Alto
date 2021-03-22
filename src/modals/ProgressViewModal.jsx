@@ -12,6 +12,7 @@ import TaskDate from '../components/TaskDate';
 import DisplayContent from '../components/DisplayContent';
 import ReportWriter from '../components/ReportWriter';
 import DisplayAttachment from '../components/DisplayAttachment';
+import ModalDivider from '../components/utils/ModalDivider';
 import { getTaskAttachments } from '../services/task';
 import { getReport, getReportAttachments } from '../services/report';
 import DateFormat from '../components/utils/DateFormat';
@@ -87,13 +88,13 @@ const ProgressViewModal = ({
       {!report ? (
         openReportWriter && (
           <>
-            <div className="border-b-4 border-dotted border-gray-300" />
+            <ModalDivider />
             <ReportWriter progressId={progressId} />
           </>
         )
       ) : (
         <>
-          <div className="border-b-4 border-dotted border-gray-300 my-3" />
+          <ModalDivider />
 
           <div className="max-w-7xl px-0 md:px-2 lg:px-6 py-3 md:py-6 w-full">
             <header className="mb-5">
