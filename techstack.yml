@@ -1,0 +1,641 @@
+repo_name: ThisIsSimple/Alto
+report_id: 1eda6ede556f45d8aae913d4a6e7e655
+repo_type: Public
+timestamp: '2023-11-30T18:29:02+00:00'
+requested_by: ThisIsSimple
+provider: github
+branch: main
+detected_tools_count: 45
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source: Repo Metadata
+- name: Autoprefixer
+  description: PostCSS plugin to parse CSS and add vendor prefixes to CSS rules
+  website_url: https://github.com/postcss/autoprefixer
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: CSS Pre-processors / Extensions
+  image_url: https://img.stackshare.io/service/2202/72d087642cfce6fef6f2dabec5bf49e8_400x400.png
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: React
+  description: A JavaScript library for building user interfaces
+  website_url: https://reactjs.org/
+  version: 17.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript UI Libraries
+  image_url: https://img.stackshare.io/service/1020/OYIaJ1KK.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: React Router
+  description: A complete routing solution for React.js
+  website_url: https://github.com/rackt/react-router
+  version: 5.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: JavaScript Framework Components
+  image_url: https://img.stackshare.io/service/3350/8261421.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: Redux
+  description: Predictable state container for JavaScript apps
+  website_url: https://redux.js.org/
+  version: 4.0.5
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: State Management Library
+  image_url: https://img.stackshare.io/service/4074/13142323.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: Sass
+  description: Syntactically Awesome Style Sheets
+  website_url: http://sass-lang.com/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: CSS Pre-processors / Extensions
+  image_url: https://img.stackshare.io/service/1171/jCR2zNJV.png
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-08 00:38:51.000000000 Z
+- name: Tailwind CSS
+  description: A utility-first CSS framework for rapid UI development
+  website_url: https://tailwindcss.com
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Front-End Frameworks
+  image_url: https://img.stackshare.io/service/8158/default_660b7c41c3ba489cb581eec89c04655404258c19.png
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: styled-components
+  description: Visual primitives for the component age. Use the best bits of ES6 and
+    CSS to style your apps without stress.
+  website_url: https://styled-components.com
+  version: 5.2.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: JavaScript Framework Components
+  image_url: https://img.stackshare.io/service/6749/styled-components.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: Dotenv
+  description: Loads environment variables from .env for Nodejs projects
+  website_url: https://github.com/motdotla/dotenv
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Server Configuration and Automation
+  image_url: https://img.stackshare.io/service/8067/default_90dcb1286af7685c68df319c764b80704df1155b.png
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: ESLint
+  description: The fully pluggable JavaScript code quality tool
+  website_url: http://eslint.org/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Code Review
+  image_url: https://img.stackshare.io/service/3337/Q4L7Jncy.jpg
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-08 00:38:51.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: Prettier
+  description: 'Prettier is an opinionated code formatter. '
+  website_url: https://prettier.io/
+  version: 2.2.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Code Review
+  image_url: https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: Yarn
+  description: A new package manager for JavaScript
+  website_url: https://yarnpkg.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source: yarn.lock
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-08 00:38:51.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-08 00:38:51.000000000 Z
+- name: HTML
+  description: Hypertext Markup Language for creating web pages.
+  website_url: http://
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/2270/no-img-open-source.png
+  detection_source: public/index.html
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-08 00:38:51.000000000 Z
+- name: axios
+  description: Promise based HTTP client for the browser and node.js
+  website_url: https://github.com/mzabriskie/axios
+  version: 0.21.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript Utilities & Libraries
+  image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: date-fns
+  description: Modern JavaScript date utility library
+  website_url: https://date-fns.org/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript Utilities & Libraries
+  image_url: https://img.stackshare.io/service/10865/default_5551fb8853689f607a2bc0d5a09355d5a3d52bf0.png
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: "@testing-library/jest-dom"
+  description: Custom jest matchers to test the state of the DOM
+  package_url: https://www.npmjs.com/@testing-library/jest-dom
+  version: 5.11.9
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17424/default_1cdcda15ebb7caed879f8340bc212b44c4ec9dac.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: "@testing-library/react"
+  description: Simple and complete React DOM testing utilities that encourage good
+    testing practices
+  package_url: https://www.npmjs.com/@testing-library/react
+  version: 11.2.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16549/default_d522554c6a41cb28d922d6d3ad32ad4afa0e3bb5.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: eslint-config-airbnb
+  description: Airbnb's ESLint config, following our styleguide
+  package_url: https://www.npmjs.com/eslint-config-airbnb
+  version: 18.2.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15857/default_7c39a83d4acd952df89b1ebfdb94c8646324fbf1.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: eslint-config-prettier
+  description: Turns off all rules that are unnecessary or might conflict with Prettier
+  package_url: https://www.npmjs.com/eslint-config-prettier
+  version: 8.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15879/default_0b10af8ca19c215f781dc07442e75bdc831089d0.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: eslint-plugin-prettier
+  description: Runs prettier as an eslint rule
+  package_url: https://www.npmjs.com/eslint-plugin-prettier
+  version: 3.3.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15896/default_6e6e1d6bb189c8bb26c6410618bd597979578f39.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: faker
+  description: Generate massive amounts of fake contextual data
+  package_url: https://www.npmjs.com/faker
+  version: 5.4.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16327/default_1baba0e6ece19a38adfb211f686c83c781ff703a.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: immer
+  description: Create your next immutable state by mutating the current one
+  package_url: https://www.npmjs.com/immer
+  version: 8.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16937/default_7b9968788548874538c601457e8dcd9c74bd2051.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+  vulnerabilities:
+  - name: Prototype Pollution in immer
+    cve_id: CVE-2021-23436
+    cve_url: https://github.com/advisories/GHSA-33f9-j839-rf8h
+    detected_date: Sep 3
+    severity: critical
+    first_patched: 9.0.6
+  - name: Prototype Pollution in immer
+    cve_id: CVE-2021-3757
+    cve_url: https://github.com/advisories/GHSA-c36v-fmgq-m8hx
+    detected_date: Sep 8
+    severity: high
+    first_patched: 9.0.6
+- name: jwt-decode
+  description: Decode JWT tokens, mostly useful for browser applications
+  package_url: https://www.npmjs.com/jwt-decode
+  version: 3.1.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17395/default_2cd7ed1c123f2fca074a6f4b16c4e73d5bfe82be.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: node-sass
+  description: Wrapper around libsass
+  package_url: https://www.npmjs.com/node-sass
+  version: 5.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15827/default_db4a7791d2f1174547374b9b587bc10fec088a5a.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+  vulnerabilities:
+  - name: Improper Certificate Validation in node-sass
+    cve_id: CVE-2020-24025
+    cve_url: https://github.com/advisories/GHSA-r8f7-9pfq-mjmv
+    detected_date: Feb 10
+    severity: moderate
+    first_patched: 7.0.0
+- name: postcss
+  description: Tool for transforming styles with JS plugins
+  package_url: https://www.npmjs.com/postcss
+  version: 7.0.21
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16012/default_7a88bebb451873cc63bd99007de5bd3bb8ef85de.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+  vulnerabilities:
+  - name: PostCSS line return parsing error
+    cve_id: CVE-2023-44270
+    cve_url: https://github.com/advisories/GHSA-7fh5-64p2-3v2j
+    detected_date: Oct 4
+    severity: moderate
+    first_patched: 8.4.31
+  - name: Regular Expression Denial of Service in postcss
+    cve_id: CVE-2021-23382
+    cve_url: https://github.com/advisories/GHSA-566m-qj78-rww5
+    detected_date: Jan 28
+    severity: moderate
+    first_patched: 7.0.36
+  - name: Regular Expression Denial of Service in postcss
+    cve_id: CVE-2021-23368
+    cve_url: https://github.com/advisories/GHSA-hwj9-h5mp-3pm3
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 7.0.36
+- name: postcss-import
+  description: PostCSS plugin to import CSS files
+  package_url: https://www.npmjs.com/postcss-import
+  version: 14.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16086/default_d4e765f8a43dcfd232c8b9ee9732058bc27c727a.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: postcss-nested
+  description: PostCSS plugin to unwrap nested rules like how Sass does it
+  package_url: https://www.npmjs.com/postcss-nested
+  version: 4.2.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16575/default_9d292a50abc76f1f74581b311ad930a616b1785c.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: prop-types
+  description: Runtime type checking for React props and similar objects
+  package_url: https://www.npmjs.com/prop-types
+  version: 15.7.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15843/default_b71c906aeda030a5e2f1fe40bf12a93be52404ab.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: react-dom
+  description: React package for working with the DOM
+  package_url: https://www.npmjs.com/react-dom
+  version: 17.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15808/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-helmet
+  description: A document head manager for React
+  package_url: https://www.npmjs.com/react-helmet
+  version: 6.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16513/default_4e3259350c525d1d859fa80a938000081d7c9db8.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-popper
+  description: React wrapper around Popper.js
+  package_url: https://www.npmjs.com/react-popper
+  version: 2.2.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17809/default_dc034f75f103514d23b4d1a7fe578415d63216ee.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-redux
+  description: Official React bindings for Redux
+  package_url: https://www.npmjs.com/react-redux
+  version: 7.2.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15984/default_f49d4c116f8ea0155f4d92673b084378bba02760.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-router-dom
+  description: DOM bindings for React Router
+  package_url: https://www.npmjs.com/react-router-dom
+  version: 5.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16025/default_e25d1fbb04a118c79fb444294461417342bd03bf.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-scripts
+  description: Configuration and scripts for Create React App
+  package_url: https://www.npmjs.com/react-scripts
+  version: 4.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15985/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-select
+  description: A Select control built with and for ReactJS
+  package_url: https://www.npmjs.com/react-select
+  version: 4.2.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16452/default_d634bba6819a28b85a138b7ded782cadbfa6a482.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: react-toastify
+  description: React notification made easy
+  package_url: https://www.npmjs.com/react-toastify
+  version: 7.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/18461/default_5ff724c0ff89bb42698aa80ef3403008cb0d8f72.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: redux-actions
+  description: Flux Standard Action utlities for Redux
+  package_url: https://www.npmjs.com/redux-actions
+  version: 2.6.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16990/default_a753a22aef103e9dbba3f82f20c705e33d009143.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: redux-devtools-extension
+  description: Wrappers for Redux DevTools Extension
+  package_url: https://www.npmjs.com/redux-devtools-extension
+  version: 2.13.9
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17039/default_88e2e076a71afdc1de87ad42c80c1606f2689af1.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: slate
+  description: A completely customizable framework for building rich text editors
+  package_url: https://www.npmjs.com/slate
+  version: 0.59.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17582/default_3a2c894d178d46e5b78f3e41ac6b2ced48b414c8.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: slate-react
+  description: Tools for building completely customizable richtext editors with React
+  package_url: https://www.npmjs.com/slate-react
+  version: 0.59.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/18566/default_27683a26a828c4de36f39c196ee155306eb1eaee.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-18 09:54:43.000000000 Z
+- name: tailwindcss
+  description: A utility-first CSS framework for rapidly building custom user interfaces
+  package_url: https://www.npmjs.com/tailwindcss
+  version: 2.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17398/default_2cd7ed1c123f2fca074a6f4b16c4e73d5bfe82be.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
+- name: yaml
+  description: JavaScript parser and stringifier for YAML
+  package_url: https://www.npmjs.com/yaml
+  version: 1.10.0
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17426/default_4036a97a759f3ed3ec649b3a5fa230fe4d064a6a.png
+  detection_source_url: github.com/ThisIsSimple/Alto/blob/main/yarn.lock
+  detection_source: package.json
+  last_updated_by: JuniorEinstein
+  last_updated_on: 2021-03-16 06:21:16.000000000 Z
