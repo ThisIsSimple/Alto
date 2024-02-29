@@ -2,7 +2,7 @@ repo_name: ThisIsSimple/Alto
 report_id: 1eda6ede556f45d8aae913d4a6e7e655
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T08:30:09+00:00'
+timestamp: '2024-02-29T18:57:32+00:00'
 requested_by: ThisIsSimple
 provider: github
 branch: main
@@ -160,7 +160,7 @@ tools:
   detection_source_url: https://github.com/ThisIsSimple/Alto
   detection_source: Repo Metadata
 - name: Prettier
-  description: 'Prettier is an opinionated code formatter. '
+  description: Prettier is an opinionated code formatter.
   website_url: https://prettier.io/
   version: 2.2.1
   license: MIT
